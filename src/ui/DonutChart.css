@@ -1,0 +1,151 @@
+svg {
+    align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.donut {
+    transition: stroke-width 0.2s ease;
+    cursor: pointer;
+}
+
+.linechart-widget {
+    align-items: center;
+    display: flex;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.linechart-donut {
+    flex: 1;
+    margin-right: 16px;
+}
+
+.linechart-info {
+    position: relative;
+}
+
+.linechart-widget .linechart-legend {
+    margin-bottom: 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.linechart-widget .linechart-legend p:first-of-type {
+    flex: 1;
+    margin-right: 16px;
+}
+
+.linechart-widget .linechart-legend li {
+    align-items: center;
+    display: flex;
+    list-style: none;
+}
+
+.linechart-widget .linechart-legend li:hover {
+    cursor: pointer;
+}
+
+.linechart-widget .linechart-legend p {
+    margin: 0;
+}
+
+.linechart-widget .linechart-legend span {
+    border-radius: 50px;
+    display: block;
+    height: 16px;
+    margin-right: 8px;
+    width: 16px;
+}
+
+.linechart-widget .linechart-chart {
+    align-self: center;
+    display: flex;
+    grid-template-columns: repeat(100, 1fr);
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+}
+
+.linechart-widget .linechart-chart li {
+    list-style: none;
+    min-height: 20px;
+    position: relative;
+}
+
+.linechart-widget .linechart-chart.linechart-chart--rounded li:first-of-type {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.linechart-widget .linechart-chart.linechart-chart--rounded li:last-of-type {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.linechart-widget .linechart-chart li:hover {
+    cursor: pointer;
+}
+
+.linechart-widget .linechart-legend li .linechart-tooltip {
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    display: flex;
+    left: var(--x);
+    opacity: 0;
+    padding: 4px 8px;
+    position: fixed;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    top: var(--y);
+    will-change: opacity;
+    width: max-content;
+    z-index: 1;
+}
+
+.linechart-widget .linechart-legend li .linechart-tooltip.show-tooltip {
+    opacity: 1;
+    transform: translateY(-60%);
+}
+
+.linechart-widget .linechart-chart li .linechart-tooltip p {
+    margin: 0;
+    padding: 4px 8px;
+}
+
+.linechart-widget .linechart-meter {
+    border-top: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linechart-widget .linechart-meter .item {
+    background-color: black;
+    height: 9px;
+    width: 1px;
+}
+
+.linechart-widget .linechart-indicators {
+    display: flex;
+}
+
+.linechart-widget .linechart-indicator {
+    flex: 1;
+}
+
+.linechart-widget .linechart-indicator:nth-child(2) {
+    text-align: center;
+}
+
+.linechart-widget .linechart-indicator:last-of-type {
+    text-align: right;
+}
+
+.linechart-widget .linechart-tooltip {
+    position: absolute;
+}

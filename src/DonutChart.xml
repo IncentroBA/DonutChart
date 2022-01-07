@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="incentro.donutchart.DonutChart" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Donut Chart</name>
+    <description>Display a simple, yet configurable donut chart based on listview-style data input.</description>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAACXBIWXMAAAsSAAALEgHS3X78AAABnElEQVQ4jY1TPU8CQRB9+BEDNiRwrcA/kFCTXGNCiSRWnAEKpaWy4GpaOysLNeEqEqQkWniBWBL4BUps0aCJBwaiZ95yi8cJCa+AmdnZnTdv5kCkGmMb2axmEzTyjPqERzAizmzb/pw4QcuyRKBc1udZdqoxfhBOqVSSNxi0/x4DoGnH2OCPCz2f88ZQUcLBSqWCQCCA+5dvnHenPIqJArKqF6yxAcDsdDpYhlDtBLJEFMCzJ6dnGNW4T3rZrMY+1LejS7qFZtp/LQ+i5NFqteZy5O6+WH84V2EZSScpT5KiNS8u1B1GrkTCMuxuz7pYmdBut/lnkkOXY3GDnMhNTNYh2gWw73kkZhjVvlsHinXrTXR0WRAQwGEz7e//qxCJRKDr5aVdE9YUOHuc4OnjRzzUTPvjPjmBYvEUyWRyVc8LcG2LSZVUWuteJg72NqWpbklrNBqtpO4Fc0O1ogiTQYGGruviYJ3LzHVQcK8rhQwqShiZTAaJRGLOiJe48/V6HYPBK0PvAOILY5RwPu2c1MYFE8CNYVRna04A+AVKwwydhNqvDQAAAABJRU5ErkJggg==</icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="context" type="datasource" isList="true" required="true">
+                <caption>Context</caption>
+                <description>Listview context</description>
+            </property>
+            <property key="chartValue" type="attribute" dataSource="context" required="true">
+                <caption>chart value</caption>
+                <description>Donutchart value</description>
+                <attributeTypes>
+                    <attributeType name="Integer" />
+                    <attributeType name="Decimal" />
+                </attributeTypes>
+            </property>
+            <property key="chartName" type="attribute" dataSource="context" required="true">
+                <caption>Value names</caption>
+                <description>Donutchart value names</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Sorting">
+            <property key="sortAttribute" type="enumeration" defaultValue="chartName">
+                <caption>Sort attribute</caption>
+                <description>Sort on which attribute.</description>
+                <enumerationValues>
+                    <enumerationValue key="chartName">Name</enumerationValue>
+                    <enumerationValue key="chartValue">Value</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="sortOrder" type="enumeration" defaultValue="asc">
+                <caption>Sort order</caption>
+                <description>Sort the attribute in one of these ways.</description>
+                <enumerationValues>
+                    <enumerationValue key="asc">Ascending</enumerationValue>
+                    <enumerationValue key="desc">Descending</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="customSortOrder" type="attribute" dataSource="context" required="false">
+                <caption>Custom sort order</caption>
+                <description>Set your own sort order attribute. This overwrites other sort settings.</description>
+                <attributeTypes>
+                    <attributeType name="Integer" />
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Colors">
+            <property key="colors" type="object" isList="true" required="false">
+                <caption>Colors</caption>
+                <description/>
+                <properties>
+                    <propertyGroup caption="Object list group">
+                        <property key="value" type="string">
+                            <caption>Color value</caption>
+                            <description>Contains the color of each item e.g. green = #00FF00 or rgb(0, 255, 0)</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Visual Details">
+            <property key="unit" type="string" required="false">
+                <caption>Unit type</caption>
+                <description>Display units alongside the numbers (cm, kg, %, EUR, €, $, ...)</description>
+            </property>
+            <property key="unitPosition" type="enumeration" defaultValue="after">
+                <caption>Unit type position</caption>
+                <description>Display the units before or after the value.</description>
+                <enumerationValues>
+                    <enumerationValue key="before">Before</enumerationValue>
+                    <enumerationValue key="after">After</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="displayTotal" type="boolean" defaultValue="true">
+                <caption>Display total</caption>
+                <description>Display the total for the Donut chart input in the legend.</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
