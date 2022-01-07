@@ -1,8 +1,8 @@
 {
-    "name": "donutchart",
-    "widgetName": "DonutChart",
+    "name": "simpledonutchart",
+    "widgetName": "SimpleDonutChart",
     "version": "1.0.0",
-    "description": "Simple donutchart",
+    "description": "Simple simpledonutchart",
     "copyright": "2021 Incentro International B.V.",
     "author": "Rob Duits",
     "engines": {

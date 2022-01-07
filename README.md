@@ -1,4 +1,4 @@
-## DonutChart
+## SimpleDonutChart
 
 Display a simple donut chart with smooth hover effect. The input data is based on listview-style input. The item type is configurable. 
 

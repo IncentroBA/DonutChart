@@ -1,33 +1,31 @@
-svg {
-    align-items: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
 
-.donut {
-    transition: stroke-width 0.2s ease;
-    cursor: pointer;
-}
-
-.linechart-widget {
+.simple-donut-chart-widget {
     align-items: center;
     display: flex;
     margin-bottom: 24px;
     position: relative;
 }
 
-.linechart-donut {
+.simple-donut-chart-widget .donut {
+    align-items: center;
+    display: flex;
     flex: 1;
+    height: 100%;
+    justify-content: center;
     margin-right: 16px;
+    width: 100%;
 }
 
-.linechart-info {
+.simple-donut-chart-widget .donut-slice {
+    transition: stroke-width 0.2s ease;
+    cursor: pointer;
+}
+
+.simple-donut-chart-widget .simple-donut-chart-info {
     position: relative;
 }
 
-.linechart-widget .linechart-legend {
+.simple-donut-chart-widget .linechart-legend {
     margin-bottom: 30px;
     padding: 0;
     display: flex;
@@ -35,26 +33,26 @@ svg {
     width: max-content;
 }
 
-.linechart-widget .linechart-legend p:first-of-type {
+.simple-donut-chart-widget .linechart-legend p:first-of-type {
     flex: 1;
     margin-right: 16px;
 }
 
-.linechart-widget .linechart-legend li {
+.simple-donut-chart-widget .linechart-legend li {
     align-items: center;
     display: flex;
     list-style: none;
 }
 
-.linechart-widget .linechart-legend li:hover {
+.simple-donut-chart-widget .linechart-legend li:hover {
     cursor: pointer;
 }
 
-.linechart-widget .linechart-legend p {
+.simple-donut-chart-widget .linechart-legend p {
     margin: 0;
 }
 
-.linechart-widget .linechart-legend span {
+.simple-donut-chart-widget .linechart-legend span {
     border-radius: 50px;
     display: block;
     height: 16px;
@@ -62,7 +60,7 @@ svg {
     width: 16px;
 }
 
-.linechart-widget .linechart-chart {
+.simple-donut-chart-widget .linechart-chart {
     align-self: center;
     display: flex;
     grid-template-columns: repeat(100, 1fr);
@@ -71,27 +69,27 @@ svg {
     padding: 0;
 }
 
-.linechart-widget .linechart-chart li {
+.simple-donut-chart-widget .linechart-chart li {
     list-style: none;
     min-height: 20px;
     position: relative;
 }
 
-.linechart-widget .linechart-chart.linechart-chart--rounded li:first-of-type {
+.simple-donut-chart-widget .linechart-chart.linechart-chart--rounded li:first-of-type {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
 
-.linechart-widget .linechart-chart.linechart-chart--rounded li:last-of-type {
+.simple-donut-chart-widget .linechart-chart.linechart-chart--rounded li:last-of-type {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
 
-.linechart-widget .linechart-chart li:hover {
+.simple-donut-chart-widget .linechart-chart li:hover {
     cursor: pointer;
 }
 
-.linechart-widget .linechart-legend li .linechart-tooltip {
+.simple-donut-chart-widget .linechart-legend li .linechart-tooltip {
     background-color: white;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
@@ -108,44 +106,44 @@ svg {
     z-index: 1;
 }
 
-.linechart-widget .linechart-legend li .linechart-tooltip.show-tooltip {
+.simple-donut-chart-widget .linechart-legend li .linechart-tooltip.show-tooltip {
     opacity: 1;
     transform: translateY(-60%);
 }
 
-.linechart-widget .linechart-chart li .linechart-tooltip p {
+.simple-donut-chart-widget .linechart-chart li .linechart-tooltip p {
     margin: 0;
     padding: 4px 8px;
 }
 
-.linechart-widget .linechart-meter {
+.simple-donut-chart-widget .linechart-meter {
     border-top: solid 1px black;
     display: flex;
     justify-content: space-between;
 }
 
-.linechart-widget .linechart-meter .item {
+.simple-donut-chart-widget .linechart-meter .item {
     background-color: black;
     height: 9px;
     width: 1px;
 }
 
-.linechart-widget .linechart-indicators {
+.simple-donut-chart-widget .linechart-indicators {
     display: flex;
 }
 
-.linechart-widget .linechart-indicator {
+.simple-donut-chart-widget .linechart-indicator {
     flex: 1;
 }
 
-.linechart-widget .linechart-indicator:nth-child(2) {
+.simple-donut-chart-widget .linechart-indicator:nth-child(2) {
     text-align: center;
 }
 
-.linechart-widget .linechart-indicator:last-of-type {
+.simple-donut-chart-widget .linechart-indicator:last-of-type {
     text-align: right;
 }
 
-.linechart-widget .linechart-tooltip {
+.simple-donut-chart-widget .linechart-tooltip {
     position: absolute;
 }

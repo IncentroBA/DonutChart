@@ -1,7 +1,7 @@
-import "./ui/DonutChart.css";
+import "./ui/SimpleDonutChart.css";
 import { createElement, useEffect, useRef, useState } from "react";
 
-export default function DonutChart({
+export default function SimpleDonutChart({
     context,
     chartValue,
     colors,
@@ -90,10 +90,10 @@ export default function DonutChart({
         }
 
         return (
-            <div className="linechart-widget">
+            <div className="simple-donut-chart-widget">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="linechart-donut"
+                    className="donut"
                     viewBox="0 0 40 40"
                     preserveAspectRatio="xMinYMin meet"
                 >
@@ -101,12 +101,12 @@ export default function DonutChart({
                         <circle
                             key={item}
                             ref={element => (containerRef.current[index] = element)}
-                            name={`donutchart-index-${index}`}
+                            name={`simpledonutchart-index-${index}`}
                             onMouseEnter={() => showTooltip(index, containerRef.current[index])}
                             onMouseLeave={() => hideTooltip(index, containerRef.current[index])}
                             cx="20"
                             cy="20"
-                            class="donut"
+                            class="donut-slice"
                             r={radius}
                             stroke-width={strokeWidth}
                             stroke={`var(--linechart-color-${[index]}, ${
@@ -123,7 +123,7 @@ export default function DonutChart({
                     ))}
                 </svg>
 
-                <div className="linechart-info">
+                <div className="simple-donut-chart-info">
                     {displayTotal && (
                         <h1 className="linechart-total">
                             {unitPosition === "before" && unit && unit}

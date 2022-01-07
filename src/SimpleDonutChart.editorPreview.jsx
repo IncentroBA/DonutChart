@@ -5,5 +5,5 @@ export function preview() {
 }
 
 export function getPreviewCss() {
-    return require("./ui/DonutChart.css");
+    return require("./ui/SimpleDonutChart.css");
 }
