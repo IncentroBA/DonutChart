@@ -18,7 +18,7 @@ Display unit type (`String`).
 
 Unit type position: `before` or `after` the value.
 
-Display the totals (`Boolean`).
+Display the total (`Boolean`).
 
 ## Usage
 

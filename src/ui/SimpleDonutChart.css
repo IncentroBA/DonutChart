@@ -25,7 +25,7 @@
     position: relative;
 }
 
-.simple-donut-chart-widget .linechart-legend {
+.simple-donut-chart-widget .donutchart-legend {
     margin-bottom: 30px;
     padding: 0;
     display: flex;
@@ -33,26 +33,26 @@
     width: max-content;
 }
 
-.simple-donut-chart-widget .linechart-legend p:first-of-type {
+.simple-donut-chart-widget .donutchart-legend p:first-of-type {
     flex: 1;
     margin-right: 16px;
 }
 
-.simple-donut-chart-widget .linechart-legend li {
+.simple-donut-chart-widget .donutchart-legend li {
     align-items: center;
     display: flex;
     list-style: none;
 }
 
-.simple-donut-chart-widget .linechart-legend li:hover {
+.simple-donut-chart-widget .donutchart-legend li:hover {
     cursor: pointer;
 }
 
-.simple-donut-chart-widget .linechart-legend p {
+.simple-donut-chart-widget .donutchart-legend p {
     margin: 0;
 }
 
-.simple-donut-chart-widget .linechart-legend span {
+.simple-donut-chart-widget .donutchart-legend span {
     border-radius: 50px;
     display: block;
     height: 16px;
@@ -60,7 +60,7 @@
     width: 16px;
 }
 
-.simple-donut-chart-widget .linechart-chart {
+.simple-donut-chart-widget .donutchart-chart {
     align-self: center;
     display: flex;
     grid-template-columns: repeat(100, 1fr);
@@ -69,27 +69,27 @@
     padding: 0;
 }
 
-.simple-donut-chart-widget .linechart-chart li {
+.simple-donut-chart-widget .donutchart-chart li {
     list-style: none;
     min-height: 20px;
     position: relative;
 }
 
-.simple-donut-chart-widget .linechart-chart.linechart-chart--rounded li:first-of-type {
+.simple-donut-chart-widget .donutchart-chart.donutchart-chart--rounded li:first-of-type {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
 
-.simple-donut-chart-widget .linechart-chart.linechart-chart--rounded li:last-of-type {
+.simple-donut-chart-widget .donutchart-chart.donutchart-chart--rounded li:last-of-type {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
 
-.simple-donut-chart-widget .linechart-chart li:hover {
+.simple-donut-chart-widget .donutchart-chart li:hover {
     cursor: pointer;
 }
 
-.simple-donut-chart-widget .linechart-legend li .linechart-tooltip {
+.simple-donut-chart-widget .donutchart-legend li .donutchart-tooltip {
     background-color: white;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
@@ -106,44 +106,44 @@
     z-index: 1;
 }
 
-.simple-donut-chart-widget .linechart-legend li .linechart-tooltip.show-tooltip {
+.simple-donut-chart-widget .donutchart-legend li .donutchart-tooltip.show-tooltip {
     opacity: 1;
     transform: translateY(-60%);
 }
 
-.simple-donut-chart-widget .linechart-chart li .linechart-tooltip p {
+.simple-donut-chart-widget .donutchart-chart li .donutchart-tooltip p {
     margin: 0;
     padding: 4px 8px;
 }
 
-.simple-donut-chart-widget .linechart-meter {
+.simple-donut-chart-widget .donutchart-meter {
     border-top: solid 1px black;
     display: flex;
     justify-content: space-between;
 }
 
-.simple-donut-chart-widget .linechart-meter .item {
+.simple-donut-chart-widget .donutchart-meter .item {
     background-color: black;
     height: 9px;
     width: 1px;
 }
 
-.simple-donut-chart-widget .linechart-indicators {
+.simple-donut-chart-widget .donutchart-indicators {
     display: flex;
 }
 
-.simple-donut-chart-widget .linechart-indicator {
+.simple-donut-chart-widget .donutchart-indicator {
     flex: 1;
 }
 
-.simple-donut-chart-widget .linechart-indicator:nth-child(2) {
+.simple-donut-chart-widget .donutchart-indicator:nth-child(2) {
     text-align: center;
 }
 
-.simple-donut-chart-widget .linechart-indicator:last-of-type {
+.simple-donut-chart-widget .donutchart-indicator:last-of-type {
     text-align: right;
 }
 
-.simple-donut-chart-widget .linechart-tooltip {
+.simple-donut-chart-widget .donutchart-tooltip {
     position: absolute;
 }

@@ -109,7 +109,7 @@ export default function SimpleDonutChart({
                             class="donut-slice"
                             r={radius}
                             stroke-width={strokeWidth}
-                            stroke={`var(--linechart-color-${[index]}, ${
+                            stroke={`var(--donutchart-color-${[index]}, ${
                                 colors[index] ? colors[index].value : colorArray[index]
                             })`}
                             strokeDasharray={Math.round(circumference)}
@@ -125,24 +125,24 @@ export default function SimpleDonutChart({
 
                 <div className="simple-donut-chart-info">
                     {displayTotal && (
-                        <h1 className="linechart-total">
+                        <h1 className="donutchart-total">
                             {unitPosition === "before" && unit && unit}
                             {total}
                             {unitPosition === "after" && unit && unit}
                         </h1>
                     )}
 
-                    <ul className={`linechart-legend`}>
+                    <ul className={`donutchart-legend`}>
                         {context.items.map((item, index) => (
                             <li
                                 key={item}
-                                name={`linechart-legend-index-${index}`}
+                                name={`donutchart-legend-index-${index}`}
                                 onMouseEnter={() => showHghlightPart(containerRef.current[index])}
                                 onMouseLeave={() => hideHighlightPart(containerRef.current[index])}
                             >
                                 <span
                                     style={{
-                                        backgroundColor: `var(--linechart-color-${[index]}, ${
+                                        backgroundColor: `var(--donutchart-color-${[index]}, ${
                                             colors[index] ? colors[index].value : colorArray[index]
                                         })`
                                     }}
@@ -154,7 +154,7 @@ export default function SimpleDonutChart({
                                     {unitPosition === "after" && unit && unit}
                                 </p>
                                 <div
-                                    className="linechart-tooltip"
+                                    className="donutchart-tooltip"
                                     ref={element => (tooltipRef.current[index] = element)}
                                 >
                                     <p>{chartName.get(context.items[index]).displayValue}</p>
@@ -171,6 +171,6 @@ export default function SimpleDonutChart({
             </div>
         );
     } else {
-        return <div className="linechart-widget"></div>;
+        return <div className="donutchart-widget"></div>;
     }
 }
