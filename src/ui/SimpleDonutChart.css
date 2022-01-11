@@ -1,4 +1,3 @@
-
 .simple-donut-chart-widget {
     align-items: center;
     display: flex;
@@ -23,6 +22,11 @@
 
 .simple-donut-chart-widget .simple-donut-chart-info {
     position: relative;
+}
+
+.simple-donut-chart-widget .donutchart-total {
+    font-weight: 700;
+    line-height: 1;
 }
 
 .simple-donut-chart-widget .donutchart-legend {

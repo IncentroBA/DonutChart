@@ -67,6 +67,12 @@
                 </properties>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="buttonAction" type="action" dataSource="context">
+                <caption>On click</caption>
+                <description>Action to be performed when donut slices are clicked</description>
+            </property>
+        </propertyGroup>
         <propertyGroup caption="Visual Details">
             <property key="unit" type="string" required="false">
                 <caption>Unit type</caption>
@@ -83,6 +89,11 @@
             <property key="displayTotal" type="boolean" defaultValue="true">
                 <caption>Display total</caption>
                 <description>Display the total for the Donut chart input in the legend.</description>
+            </property>
+            <property key="legendTitle" type="expression" required="false">
+                <caption>legend Title</caption>
+                <description>Title for the legend, can be used as prefix for the totals.</description>
+                <returnType type="String" />
             </property>
         </propertyGroup>
     </properties>

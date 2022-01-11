@@ -2,12 +2,14 @@ import "./ui/SimpleDonutChart.css";
 import { createElement, useEffect, useRef, useState } from "react";
 
 export default function SimpleDonutChart({
+    buttonAction,
     context,
     chartValue,
     colors,
     customSortOrder,
     chartName,
     displayTotal,
+    legendTitle,
     sortAttribute,
     sortOrder,
     unit,
@@ -16,7 +18,7 @@ export default function SimpleDonutChart({
     const [canRender, setCanRender] = useState(false);
     const containerRef = useRef([]);
     const tooltipRef = useRef([]);
-    const colorArray = ["#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600"];
+    const colorArray = ["#003f5c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600"];
     const [total, setTotal] = useState(0);
     const strokeWidth = 4;
     let currentIndex = 0;
@@ -70,6 +72,13 @@ export default function SimpleDonutChart({
         context.setSortOrder(sortInstrs);
     }
 
+    function onClick(index) {
+        const donutAction = buttonAction.get(context.items[index]);
+        if (donutAction && donutAction.canExecute) {
+            donutAction.execute();
+        }
+    }
+
     useEffect(() => {
         if (context && context.status === "available" && context.items.length > 0) {
             setSortOrder();
@@ -85,7 +94,7 @@ export default function SimpleDonutChart({
 
         function segmentTotalLength(index) {
             const thisTotal = (preSegmentsTotalLength * 360) / total + startAngle;
-            preSegmentsTotalLength += Number(Math.round(chartValue.get(context.items[index]).displayValue));
+            preSegmentsTotalLength += Number(chartValue.get(context.items[index]).displayValue);
             return thisTotal;
         }
 
@@ -104,6 +113,7 @@ export default function SimpleDonutChart({
                             name={`simpledonutchart-index-${index}`}
                             onMouseEnter={() => showTooltip(index, containerRef.current[index])}
                             onMouseLeave={() => hideTooltip(index, containerRef.current[index])}
+                            onClick={() => onClick(index)}
                             cx="20"
                             cy="20"
                             class="donut-slice"
@@ -112,11 +122,11 @@ export default function SimpleDonutChart({
                             stroke={`var(--donutchart-color-${[index]}, ${
                                 colors[index] ? colors[index].value : colorArray[index]
                             })`}
-                            strokeDasharray={Math.round(circumference)}
-                            strokeDashoffset={Math.round(
+                            strokeDasharray={circumference}
+                            strokeDashoffset={
                                 circumference -
-                                    (circumference * chartValue.get(context.items[index]).displayValue) / total
-                            )}
+                                (circumference * chartValue.get(context.items[index]).displayValue) / total
+                            }
                             transform={`rotate(${segmentTotalLength(index)} 20 20)`}
                             fill="none"
                         />
@@ -124,12 +134,13 @@ export default function SimpleDonutChart({
                 </svg>
 
                 <div className="simple-donut-chart-info">
-                    {displayTotal && (
-                        <h1 className="donutchart-total">
+                    {(displayTotal || legendTitle) && (
+                        <p className="donutchart-total">
+                            {legendTitle && legendTitle.status === "available" && `${legendTitle.value} `}
                             {unitPosition === "before" && unit && unit}
-                            {total}
+                            {displayTotal && total}
                             {unitPosition === "after" && unit && unit}
-                        </h1>
+                        </p>
                     )}
 
                     <ul className={`donutchart-legend`}>
