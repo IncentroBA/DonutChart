@@ -33,6 +33,11 @@ export default function SimpleDonutChart({
         tooltipRef.current[currentIndex].style.setProperty("--y", `${y}px`);
     }
 
+    function getChartNumberValue(index) {
+        const rawValue = chartValue.get(context.items[index]).displayValue;
+        return Number(rawValue.replace(/,/g, '.'));
+    }
+
     function showHghlightPart(currentContainer) {
         currentContainer.style.strokeWidth = strokeWidth + 2;
     }
@@ -57,7 +62,10 @@ export default function SimpleDonutChart({
 
     function calcTotal() {
         const totals = [];
-        context.items.map((item, index) => totals.push(Number(chartValue.get(context.items[index]).displayValue)));
+        context.items.map((item, index) => {
+            const numberValue = getChartNumberValue(index);
+            totals.push(numberValue)
+        });
         setTotal(totals.reduce((a, b) => a + b, 0));
     }
 
@@ -94,7 +102,7 @@ export default function SimpleDonutChart({
 
         function segmentTotalLength(index) {
             const thisTotal = (preSegmentsTotalLength * 360) / total + startAngle;
-            preSegmentsTotalLength += Number(chartValue.get(context.items[index]).displayValue);
+            preSegmentsTotalLength += getChartNumberValue(index);
             return thisTotal;
         }
 
@@ -125,7 +133,7 @@ export default function SimpleDonutChart({
                             strokeDasharray={circumference}
                             strokeDashoffset={
                                 circumference -
-                                (circumference * chartValue.get(context.items[index]).displayValue) / total
+                                (circumference * getChartNumberValue(index)) / total
                             }
                             transform={`rotate(${segmentTotalLength(index)} 20 20)`}
                             fill="none"
@@ -136,10 +144,10 @@ export default function SimpleDonutChart({
                 <div className="simple-donut-chart-info">
                     {(displayTotal || legendTitle) && (
                         <p className="donutchart-total">
+                            {displayTotal && unitPosition === "before" && unit && unit}
                             {legendTitle && legendTitle.status === "available" && `${legendTitle.value} `}
-                            {unitPosition === "before" && unit && unit}
                             {displayTotal && total}
-                            {unitPosition === "after" && unit && unit}
+                            {displayTotal && unitPosition === "after" && unit && unit}
                         </p>
                     )}
 
