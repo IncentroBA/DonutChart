@@ -5,6 +5,26 @@
     position: relative;
 }
 
+.simple-donut-chart-widget .chart-container {
+    position: relative;
+}
+
+.simple-donut-chart-widget .donut-percentage {
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    height: 86%;
+    width: 86%;
+    transform-origin: 0 0;
+}
+
+.simple-donut-chart-widget .donut-percentage span {
+    display: inline-block;
+}
+
 .simple-donut-chart-widget .donut {
     align-items: center;
     display: flex;
@@ -39,7 +59,6 @@
 
 .simple-donut-chart-widget .donutchart-legend p:first-of-type {
     flex: 1;
-    margin-right: 16px;
 }
 
 .simple-donut-chart-widget .donutchart-legend li {
@@ -62,6 +81,10 @@
     height: 16px;
     margin-right: 8px;
     width: 16px;
+}
+
+.simple-donut-chart-widget .donutchart-value {
+    padding-left: 16px;
 }
 
 .simple-donut-chart-widget .donutchart-chart {

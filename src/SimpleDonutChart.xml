@@ -90,6 +90,14 @@
                 <caption>Display total</caption>
                 <description>Display the total for the Donut chart input in the legend.</description>
             </property>
+            <property key="displayValues" type="boolean" defaultValue="true">
+                <caption>Display values</caption>
+                <description>The number values will be displayed in the legend and chart hover state.</description>
+            </property>
+            <property key="displayPercentages" type="boolean" defaultValue="true">
+                <caption>Display percentages</caption>
+                <description>Display percentages inside the donut chart.</description>
+            </property>
             <property key="legendTitle" type="expression" required="false">
                 <caption>legend Title</caption>
                 <description>Title for the legend, can be used as prefix for the totals.</description>
