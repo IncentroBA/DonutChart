@@ -145,7 +145,8 @@ export default function SimpleDonutChart({
                                                 : getTextColor(colorArray[index])
                                         }}
                                     >
-                                        {getChartNumberValue(index) >= 5 && `${getChartNumberValue(index)}%`}
+                                        {(getChartNumberValue(index) / total) * 100 >= 5 &&
+                                            `${Math.round((getChartNumberValue(index) / total) * 100)}%`}
                                     </span>
                                 </div>
                             ))}
