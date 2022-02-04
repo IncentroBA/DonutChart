@@ -75,12 +75,8 @@
     margin: 0;
 }
 
-.simple-donut-chart-widget .donutchart-legend span {
-    border-radius: 50px;
-    display: block;
-    height: 16px;
+.simple-donut-chart-widget .donutchart-legend svg {
     margin-right: 8px;
-    width: 16px;
 }
 
 .simple-donut-chart-widget .donutchart-value {
@@ -173,4 +169,20 @@
 
 .simple-donut-chart-widget .donutchart-tooltip {
     position: absolute;
+}
+
+@media print {
+    .simple-donut-chart-widget .donut-percentage {
+        height: 70%;
+        width: 70%;
+    }
+
+    .simple-donut-chart-widget .donut-percentage span {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .donutchart-legend li .donutchart-tooltip {
+        display: none;
+    }
 }

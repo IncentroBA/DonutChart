@@ -193,7 +193,7 @@ export default function SimpleDonutChart({
                         </p>
                     )}
 
-                    <ul className={`donutchart-legend`}>
+                    <ul className="donutchart-legend">
                         {context.items.map((item, index) => (
                             <li
                                 key={item}
@@ -201,13 +201,16 @@ export default function SimpleDonutChart({
                                 onMouseEnter={() => showHghlightPart(containerRef.current[index])}
                                 onMouseLeave={() => hideHighlightPart(containerRef.current[index])}
                             >
-                                <span
-                                    style={{
-                                        backgroundColor: `var(--donutchart-color-${[index]}, ${
+                                <svg width="10" height="10" viewBox="0 0 10 10">
+                                    <circle
+                                        fill={`var(--donutchart-color-${[index]}, ${
                                             colors[index] ? colors[index].value : colorArray[index]
-                                        })`
-                                    }}
-                                ></span>
+                                        })`}
+                                        cx="5"
+                                        cy="5"
+                                        r="5"
+                                    />
+                                </svg>
                                 <p>{chartName.get(context.items[index]).displayValue}</p>
                                 {displayValues && (
                                     <p className="donutchart-value">
