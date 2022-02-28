@@ -45,23 +45,23 @@ export default function SimpleDonutChart({
         currentContainer.style.strokeWidth = strokeWidth + 2;
     }
 
-    function hideHighlightPart(currentContainer) {
+    const hideHighlightPart = currentContainer => {
         currentContainer.style.strokeWidth = null;
-    }
+    };
 
-    function showTooltip(index, currentContainer) {
+    const showTooltip = (index, currentContainer) => {
         tooltipRef.current[index].classList.add("show-tooltip");
         currentIndex = index;
         showHghlightPart(currentContainer);
         document.addEventListener("mousemove", setTooltipPosition);
-    }
+    };
 
-    function hideTooltip(index, currentContainer) {
+    const hideTooltip = (index, currentContainer) => {
         tooltipRef.current[index].classList.remove("show-tooltip");
         currentIndex = 0;
         hideHighlightPart(currentContainer);
         document.removeEventListener("mousemove", setTooltipPosition);
-    }
+    };
 
     function calcTotal() {
         const totals = [];
@@ -80,9 +80,10 @@ export default function SimpleDonutChart({
         context.setSortOrder(sortInstrs);
     }
 
-    function onClick(index) {
+    function onClick(index, currentContainer) {
         const donutAction = buttonAction.get(context.items[index]);
         if (donutAction && donutAction.canExecute) {
+            hideTooltip(index, currentContainer);
             donutAction.execute();
         }
     }
@@ -134,12 +135,12 @@ export default function SimpleDonutChart({
                                     key={item}
                                     className="donut-percentage"
                                     style={{
-                                        transform: `rotate(${rotatePercentage(index)}deg) translate(-50%, -50%)`
+                                        transform: `rotate(${rotatePercentage(index) || 0}deg) translate(-50%, -50%)`
                                     }}
                                 >
                                     <span
                                         style={{
-                                            transform: `rotate(-${percentageRotate[index]}deg)`,
+                                            transform: `rotate(-${percentageRotate[index] || 0}deg)`,
                                             color: colors[index]
                                                 ? getTextColor(colors[index].value)
                                                 : getTextColor(colorArray[index])
@@ -165,7 +166,7 @@ export default function SimpleDonutChart({
                                 name={`simpledonutchart-index-${index}`}
                                 onMouseEnter={() => showTooltip(index, containerRef.current[index])}
                                 onMouseLeave={() => hideTooltip(index, containerRef.current[index])}
-                                onClick={() => buttonAction && onClick(index)}
+                                onClick={() => buttonAction && onClick(index, containerRef.current[index])}
                                 cx="20"
                                 cy="20"
                                 className="donut-slice"
@@ -176,7 +177,7 @@ export default function SimpleDonutChart({
                                 })`}
                                 strokeDasharray={circumference}
                                 strokeDashoffset={circumference - (circumference * getChartNumberValue(index)) / total}
-                                transform={`rotate(${segmentTotalLength(index, -90)} 20 20)`}
+                                transform={`rotate(${segmentTotalLength(index, -90) || 0} 20 20)`}
                                 fill="none"
                             />
                         ))}
