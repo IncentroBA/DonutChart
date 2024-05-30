@@ -1,7 +1,7 @@
 {
     "name": "simpledonutchart",
     "widgetName": "SimpleDonutChart",
-    "version": "1.0.4",
+    "version": "1.0.3",
     "description": "Display a simple donut chart with smooth hover effect. The input data is based on listview-style input. The item type is configurable. ",
     "copyright": "2024 Incentro International BV",
     "author": "Rob Duits",
