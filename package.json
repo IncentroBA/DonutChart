@@ -1,9 +1,9 @@
 {
     "name": "simpledonutchart",
     "widgetName": "SimpleDonutChart",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Display a simple donut chart with smooth hover effect. The input data is based on listview-style input. The item type is configurable. ",
-    "copyright": "Incentro 2024",
+    "copyright": "2024 Incentro International BV",
     "author": "Rob Duits",
     "engines": {
         "node": ">=16"
@@ -25,7 +25,7 @@
         "release": "pluggable-widgets-tools release:web"
     },
     "devDependencies": {
-        "@mendix/pluggable-widgets-tools": "^10.5.0"
+        "@mendix/pluggable-widgets-tools": "^10.7.2"
     },
     "dependencies": {
         "classnames": "^2.5.1"
